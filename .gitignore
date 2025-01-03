@@ -1,0 +1,10 @@
+.venv/
+venv/
+maps/
+mockups/
+experimentations/
+generated_maps/
+generated_mockups/
+mpcs/
+tiled_images/
+__pycache__/
