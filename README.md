@@ -22,8 +22,8 @@ curl -X POST -H "Content-Type: application/json" -d '{"image_url": "https://geta
 
 ### Known Issues
 
-- Image resizing is not working properly
-![Example request](https://github.com/user-attachments/assets/ac1dbea9-38bb-4601-bdda-7a270f3d738a)
+- Works best with PNG images.
+- Design is not centered on the apparel
 
 
 ### Future Improvements/TODO

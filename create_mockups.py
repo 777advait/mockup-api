@@ -128,6 +128,7 @@ def create_mockups(image_urls):
 
             except Exception as e:
                 logging.error(f"Error processing {image_url}: {e}")
+                print(f"Error processing {image_url}: {e}")
                 raise RuntimeError(f"Error processing {image_url}")
 
         for future in concurrent.futures.as_completed(futures):
