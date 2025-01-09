@@ -60,100 +60,100 @@ def generate_mockup():
 
 
 
-# @app.route("/", methods=['GET'])
-# def welcome():
-#     """Welcome endpoint"""
-#     return {
-#         "message": "Welcome to the Mockup Generator API",
-#         "available_endpoints": [
-#             "/upload-images",
-#             "/images",
-#             "/html",
-#             "/upload"
-#         ]
-#     }
+@app.route("/", methods=['GET'])
+def welcome():
+    """Welcome endpoint"""
+    return {
+        "message": "Welcome to the Mockup Generator API",
+        "available_endpoints": [
+            "/upload-images",
+            "/images",
+            "/html",
+            "/upload"
+        ]
+    }
 
 
-# @app.route("/upload-images", methods=['POST'])
-# def upload_images():
-#     """Handle image uploads and mockup generation"""
-#     try:
-#         # Check if images are present
-#         if 'images' not in request.files:
-#             return {"message": "No file part"}, 400
+@app.route("/upload-images", methods=['POST'])
+def upload_images():
+    """Handle image uploads and mockup generation"""
+    try:
+        # Check if images are present
+        if 'images' not in request.files:
+            return {"message": "No file part"}, 400
 
-#         images = request.files.getlist('images')
-#         image_urls = []
-#         image_names = []
+        images = request.files.getlist('images')
+        image_urls = []
+        image_names = []
 
-#         # Process each uploaded image
-#         for image in images:
-#             if image.filename == '':
-#                 return {"message": "No selected file"}, 400
+        # Process each uploaded image
+        for image in images:
+            if image.filename == '':
+                return {"message": "No selected file"}, 400
 
-#             filename = secure_filename(image.filename)
-#             image_names.append(filename)
+            filename = secure_filename(image.filename)
+            image_names.append(filename)
 
-#             # Save uploaded image
-#             file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-#             image.save(file_path)
+            # Save uploaded image
+            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            image.save(file_path)
 
-#             # Generate image URL
-#             image_urls.append(
-#                 url_for('get_image', filename=filename, _external=True))
+            # Generate image URL
+            image_urls.append(
+                url_for('get_image', filename=filename, _external=True))
 
-#         # Process mockups concurrently
-#         processing_results = create_mockups(image_names)
+        # Process mockups concurrently
+        processing_results = create_mockups(image_names)
 
-#         return {
-#             "message": "Images uploaded and processed successfully",
-#             "image_urls": image_urls,
-#             "processing_results": processing_results
-#         }
+        return {
+            "message": "Images uploaded and processed successfully",
+            "image_urls": image_urls,
+            "processing_results": processing_results
+        }
 
-#     except Exception as e:
-#         logging.error(f"Upload error: {e}")
-#         return {"message": f"Processing error: {str(e)}"}, 500
-
-
-# @app.route('/images')
-# def get_images():
-#     """Retrieve generated mockup images"""
-#     images = []
-
-#     # Check if mockups directory exists
-#     if os.path.exists(app.config['MOCKUP_FOLDER']):
-#         for filename in os.listdir(app.config['MOCKUP_FOLDER']):
-#             if os.path.isfile(os.path.join(app.config['MOCKUP_FOLDER'], filename)):
-#                 image_url = url_for(
-#                     'get_image', filename=filename, _external=True)
-#                 images.append(image_url)
-
-#     return jsonify({"images": images})
+    except Exception as e:
+        logging.error(f"Upload error: {e}")
+        return {"message": f"Processing error: {str(e)}"}, 500
 
 
-# @app.route('/images/<filename>')
-# def get_image(filename):
-#     """Serve individual mockup image"""
-#     file_path = os.path.join(app.config['MOCKUP_FOLDER'], filename)
+@app.route('/images')
+def get_images():
+    """Retrieve generated mockup images"""
+    images = []
 
-#     # Check if file exists
-#     if not os.path.exists(file_path):
-#         return {"message": "Image not found"}, 404
+    # Check if mockups directory exists
+    if os.path.exists(app.config['MOCKUP_FOLDER']):
+        for filename in os.listdir(app.config['MOCKUP_FOLDER']):
+            if os.path.isfile(os.path.join(app.config['MOCKUP_FOLDER'], filename)):
+                image_url = url_for(
+                    'get_image', filename=filename, _external=True)
+                images.append(image_url)
 
-#     return send_file(file_path)
-
-
-# @app.route('/html')
-# def get_html():
-#     """Serve HTML gallery page"""
-#     return send_file('index.html')
+    return jsonify({"images": images})
 
 
-# @app.route('/upload')
-# def get_upload():
-#     """Serve upload page"""
-#     return send_file('upload_images.html')
+@app.route('/images/<filename>')
+def get_image(filename):
+    """Serve individual mockup image"""
+    file_path = os.path.join(app.config['MOCKUP_FOLDER'], filename)
+
+    # Check if file exists
+    if not os.path.exists(file_path):
+        return {"message": "Image not found"}, 404
+
+    return send_file(file_path)
+
+
+@app.route('/html')
+def get_html():
+    """Serve HTML gallery page"""
+    return send_file('index.html')
+
+
+@app.route('/upload')
+def get_upload():
+    """Serve upload page"""
+    return send_file('upload_images.html')
 
 # Main application execution
 if __name__ == '__main__':

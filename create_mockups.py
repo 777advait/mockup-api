@@ -46,10 +46,12 @@ def resize_swatch_with_error_handling(path_to_base_image, image_content, output_
             new_image.save(output_file, optimize=True, quality=85)
 
         logging.info(f"Resized and saved swatch image to: {output_file}")
-        raise RuntimeError(f"Error resizing image: {e}")
+        print(f"Resized and saved swatch image to: {output_file}")
+        return output_file
 
     except Exception as e:
         logging.error(f"Error resizing image: {e}")
+        print(f"Error resizing image: {e}")
         return None
 
 

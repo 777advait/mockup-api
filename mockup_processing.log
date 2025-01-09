@@ -1,0 +1,104 @@
+2025-01-08 23:13:02,148 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://192.168.1.100:8000
+2025-01-08 23:13:02,148 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-08 23:13:02,195 - INFO:  * Restarting with watchdog (fsevents)
+2025-01-08 23:13:03,462 - WARNING:  * Debugger is active!
+2025-01-08 23:13:03,492 - INFO:  * Debugger PIN: 911-963-107
+2025-01-08 23:13:23,356 - INFO: Base maps created successfully
+2025-01-08 23:16:12,055 - INFO: Resized and saved swatch image to: mockups/opengraph-image.png
+2025-01-08 23:16:12,056 - ERROR: Error resizing image: cannot access local variable 'e' where it is not associated with a value
+2025-01-08 23:16:12,057 - ERROR: Comprehensive error processing mockup: Error resizing image
+2025-01-08 23:16:12,057 - ERROR: Runtime error: Error: Error resizing image
+2025-01-08 23:16:12,059 - INFO: 127.0.0.1 - - [08/Jan/2025 23:16:12] "[35m[1mPOST /generate-mockup HTTP/1.1[0m" 500 -
+2025-01-09 10:35:29,957 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://172.20.10.2:8000
+2025-01-09 10:35:29,959 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-09 10:35:30,015 - INFO:  * Restarting with watchdog (fsevents)
+2025-01-09 10:35:31,207 - WARNING:  * Debugger is active!
+2025-01-09 10:35:31,255 - INFO:  * Debugger PIN: 911-963-107
+2025-01-09 10:42:05,677 - INFO:  * Detected change in '/Users/advaitjadhav/Desktop/work/mockup-api-master/app.py', reloading
+2025-01-09 10:42:05,685 - INFO:  * Detected change in '/Users/advaitjadhav/Desktop/work/mockup-api-master/app.py', reloading
+2025-01-09 10:42:06,004 - INFO:  * Restarting with watchdog (fsevents)
+2025-01-09 10:42:07,392 - WARNING:  * Debugger is active!
+2025-01-09 10:42:07,418 - INFO:  * Debugger PIN: 911-963-107
+2025-01-09 10:44:15,194 - INFO:  * Detected change in '/Users/advaitjadhav/Desktop/work/mockup-api-master/app.py', reloading
+2025-01-09 10:44:15,202 - INFO:  * Detected change in '/Users/advaitjadhav/Desktop/work/mockup-api-master/app.py', reloading
+2025-01-09 10:44:15,634 - INFO:  * Restarting with watchdog (fsevents)
+2025-01-09 10:44:17,209 - WARNING:  * Debugger is active!
+2025-01-09 10:44:17,247 - INFO:  * Debugger PIN: 911-963-107
+2025-01-09 10:44:26,604 - INFO: 127.0.0.1 - - [09/Jan/2025 10:44:26] "GET / HTTP/1.1" 200 -
+2025-01-09 10:44:29,621 - INFO: 127.0.0.1 - - [09/Jan/2025 10:44:29] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-01-09 10:44:48,875 - INFO: 127.0.0.1 - - [09/Jan/2025 10:44:48] "GET /upload HTTP/1.1" 200 -
+2025-01-09 10:46:09,772 - ERROR: Unexpected error: [Errno 2] No such file or directory: 'magick'
+2025-01-09 10:46:09,773 - INFO: 127.0.0.1 - - [09/Jan/2025 10:46:09] "[35m[1mPOST /generate-mockup HTTP/1.1[0m" 500 -
+2025-01-09 10:46:58,242 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://172.20.10.2:8000
+2025-01-09 10:46:58,242 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-09 10:46:58,258 - INFO:  * Restarting with watchdog (fsevents)
+2025-01-09 10:46:58,806 - WARNING:  * Debugger is active!
+2025-01-09 10:46:58,821 - INFO:  * Debugger PIN: 911-963-107
+2025-01-09 10:47:08,789 - INFO: Base maps created successfully
+2025-01-09 10:47:09,386 - INFO: Resized and saved swatch image to: mockups/Plus.png
+2025-01-09 10:47:09,386 - ERROR: Error resizing image: cannot access local variable 'e' where it is not associated with a value
+2025-01-09 10:47:09,387 - ERROR: Comprehensive error processing mockup: Error resizing image
+2025-01-09 10:47:09,388 - ERROR: Runtime error: Error: Error resizing image
+2025-01-09 10:47:09,389 - INFO: 127.0.0.1 - - [09/Jan/2025 10:47:09] "[35m[1mPOST /generate-mockup HTTP/1.1[0m" 500 -
+2025-01-09 10:50:10,210 - INFO:  * Detected change in '/Users/advaitjadhav/Desktop/work/mockup-api-master/create_mockups.py', reloading
+2025-01-09 10:50:10,219 - INFO:  * Detected change in '/Users/advaitjadhav/Desktop/work/mockup-api-master/create_mockups.py', reloading
+2025-01-09 10:50:10,331 - INFO:  * Restarting with watchdog (fsevents)
+2025-01-09 10:50:11,500 - WARNING:  * Debugger is active!
+2025-01-09 10:50:11,517 - INFO:  * Debugger PIN: 911-963-107
+2025-01-09 10:50:21,213 - INFO: Base maps created successfully
+2025-01-09 10:50:21,639 - INFO: Resized and saved swatch image to: mockups/Plus.png
+2025-01-09 10:50:21,640 - ERROR: Comprehensive error processing mockup: Error resizing image
+2025-01-09 10:50:21,640 - ERROR: Runtime error: Error: Error resizing image
+2025-01-09 10:50:21,642 - INFO: 127.0.0.1 - - [09/Jan/2025 10:50:21] "[35m[1mPOST /generate-mockup HTTP/1.1[0m" 500 -
+2025-01-09 10:50:35,761 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://172.20.10.2:8000
+2025-01-09 10:50:35,761 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-09 10:50:35,775 - INFO:  * Restarting with watchdog (fsevents)
+2025-01-09 10:50:36,341 - WARNING:  * Debugger is active!
+2025-01-09 10:50:36,357 - INFO:  * Debugger PIN: 911-963-107
+2025-01-09 10:50:43,170 - INFO: Base maps created successfully
+2025-01-09 10:50:43,626 - INFO: Resized and saved swatch image to: mockups/Plus.png
+2025-01-09 10:50:43,627 - ERROR: Comprehensive error processing mockup: Error resizing image
+2025-01-09 10:50:43,628 - ERROR: Runtime error: Error: Error resizing image
+2025-01-09 10:50:43,630 - INFO: 127.0.0.1 - - [09/Jan/2025 10:50:43] "[35m[1mPOST /generate-mockup HTTP/1.1[0m" 500 -
+2025-01-09 10:52:05,959 - INFO:  * Detected change in '/Users/advaitjadhav/Desktop/work/mockup-api-master/create_mockups.py', reloading
+2025-01-09 10:52:05,969 - INFO:  * Detected change in '/Users/advaitjadhav/Desktop/work/mockup-api-master/create_mockups.py', reloading
+2025-01-09 10:52:06,190 - INFO:  * Restarting with watchdog (fsevents)
+2025-01-09 10:52:07,225 - WARNING:  * Debugger is active!
+2025-01-09 10:52:07,241 - INFO:  * Debugger PIN: 911-963-107
+2025-01-09 10:52:13,281 - INFO: Base maps created successfully
+2025-01-09 10:52:13,691 - INFO: Resized and saved swatch image to: mockups/Plus.png
+2025-01-09 10:52:13,712 - ERROR: Comprehensive error processing mockup: Command '['magick', 'identify', '-format', '%wx%h', 'base_images/template.jpg']' returned non-zero exit status 1.
+2025-01-09 10:52:13,713 - ERROR: Runtime error: Error: Command '['magick', 'identify', '-format', '%wx%h', 'base_images/template.jpg']' returned non-zero exit status 1.
+2025-01-09 10:52:13,714 - INFO: 127.0.0.1 - - [09/Jan/2025 10:52:13] "[35m[1mPOST /generate-mockup HTTP/1.1[0m" 500 -
+2025-01-09 11:01:00,080 - INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8000
+ * Running on http://172.20.10.2:8000
+2025-01-09 11:01:00,081 - INFO: [33mPress CTRL+C to quit[0m
+2025-01-09 11:01:00,106 - INFO:  * Restarting with watchdog (fsevents)
+2025-01-09 11:01:00,478 - WARNING:  * Debugger is active!
+2025-01-09 11:01:00,489 - INFO:  * Debugger PIN: 911-963-107
+2025-01-09 11:02:46,078 - INFO: Base maps created successfully
+2025-01-09 11:02:48,404 - INFO: Resized and saved swatch image to: mockups/Plus.png
+2025-01-09 11:02:52,114 - INFO: Successfully processed mockup: mockups/Plus.png
+2025-01-09 11:02:52,115 - INFO: Mockup generation completed for all images
+2025-01-09 11:02:52,117 - INFO: 127.0.0.1 - - [09/Jan/2025 11:02:52] "[35m[1mPOST /generate-mockup HTTP/1.1[0m" 201 -
+2025-01-09 11:05:54,701 - INFO: Base maps created successfully
+2025-01-09 11:05:55,051 - INFO: Resized and saved swatch image to: mockups/Plus.png
+2025-01-09 11:05:57,658 - INFO: Resized and saved swatch image to: mockups/opengraph-image.png
+2025-01-09 11:05:59,317 - INFO: Successfully processed mockup: mockups/Plus.png
+2025-01-09 11:06:01,451 - INFO: Successfully processed mockup: mockups/opengraph-image.png
+2025-01-09 11:06:01,452 - INFO: Mockup generation completed for all images
+2025-01-09 11:06:01,455 - INFO: 127.0.0.1 - - [09/Jan/2025 11:06:01] "[35m[1mPOST /generate-mockup HTTP/1.1[0m" 201 -

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload Images</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      form {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        width: 300px;
+        text-align: center;
+      }
+
+      input[type="file"] {
+        display: block;
+        margin: 10px auto;
+      }
+
+      button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      .gallery img {
+        height: 400px;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .loader {
+        border: 2px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 2px solid #007bff;
+        width: 20px;
+        height: 20px;
+        animation: spin 0.4s linear infinite;
+        display: none;
+        margin: auto;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <div class="loader" id="loader"></div>
+      <input type="file" name="image" multiple />
+
+      <button type="submit">Upload</button>
+    </form>
+    <div class="gallery" id="gallery"></div>
+
+    <script>
+      document
+        .querySelector("form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const loader = document.getElementById("loader");
+          loader.style.display = "block"; // Show the loader
+
+          const formData = new FormData();
+          const images = document.querySelector('input[type="file"]').files;
+
+          for (let i = 0; i < images.length; i++) {
+            formData.append("images", images[i]);
+          }
+          console.log(formData);
+
+          fetch("/upload-images", {
+            method: "POST",
+            body: formData,
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              loader.style.display = "none"; // Hide the loader
+              const gallery = document.getElementById("gallery");
+              gallery.innerHTML = "";
+
+              data.image_urls.forEach((imageUrl) => {
+                const img = document.createElement("img");
+                img.src = imageUrl;
+                gallery.appendChild(img);
+              });
+            })
+            .catch((error) => {
+              loader.style.display = "none"; // Hide the loader
+              console.error("Error uploading images:", error);
+            });
+        });
+    </script>
+  </body>
+</html>
