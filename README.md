@@ -23,9 +23,9 @@ curl -X POST -H "Content-Type: application/json" -d '{"image_url": "https://geta
 ### Known Issues
 
 - Works best with PNG images.
-- Design is not centered on the apparel
-
 
 ### Future Improvements/TODO
+
 - [ ] Upload the generated mockup directly to Azure Blob Storage.
 - [ ] Test and improve error handling and logging (if needed).
+- [ ] Dynamically enter the design on the apparel.

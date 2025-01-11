@@ -23,17 +23,28 @@ def generate_mockup(template, mask, artwork, displacement_map, lighting_map, adj
 
     # Calculate perspective coordinates based on center alignment
     template_width, template_height = get_image_size(template)
+
     artwork_width, artwork_height = get_image_size(artwork)
 
+    # Horizontal center
     x_center = template_width // 2
-    y_center = template_height // 2
 
-    # Calculate the coordinates based on the center of the image
-    coords = f'0,0,{x_center - artwork_width // 2},0,' \
-        f'0,{artwork_height},{x_center - artwork_width // 2},{template_height},' \
-        f'{artwork_width},0,{x_center + artwork_width // 2},0,' \
-        f'{artwork_width},{artwork_height},{
-            x_center + artwork_width // 2},{template_height}'
+    # Dynamically calculate vertical center based on percentage of template height
+    # Adjust as needed (e.g., 0.4 = 40% from top)
+    vertical_position_percentage = 0.75
+    y_center = int(template_height * vertical_position_percentage) - \
+        (artwork_height // 2)
+
+    print("Dynamic Center (x, y):", x_center, y_center)
+
+    # Calculate perspective transformation coordinates
+    coords = f'0,0,{x_center - artwork_width // 2},{y_center - artwork_height // 2},' \
+        f'0,{artwork_height},{x_center - artwork_width // 2},{y_center + artwork_height // 2},' \
+        f'{artwork_width},0,{x_center + artwork_width // 2},{y_center - artwork_height // 2},' \
+        f'{artwork_width},{artwork_height},{x_center +
+                                            artwork_width // 2},{y_center + artwork_height // 2}'
+
+    print(coords, type(coords))
 
     # Add border
     cmd1 = ['magick', artwork, '-bordercolor',
@@ -42,7 +53,7 @@ def generate_mockup(template, mask, artwork, displacement_map, lighting_map, adj
 
     # Add perspective transform
     cmd2 = [
-        'magick', template, '-alpha', 'transparent', '(', tmp, '+distort', 'perspective', coords, ')',
+        'magick', template, '-alpha', 'transparent', '(', tmp, '-distort', 'perspective', coords, ')',
         '-background', 'transparent', '-layers', 'merge', '+repage', tmp
     ]
     run_command(cmd2)

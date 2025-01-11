@@ -9,3 +9,4 @@ mpcs/
 tiled_images/
 __pycache__/
 *.log
+mockup_processing.log
