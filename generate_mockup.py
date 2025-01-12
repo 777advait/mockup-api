@@ -58,8 +58,7 @@ def generate_mockup(template, mask, artwork, displacement_map, lighting_map, adj
     coords = f'0,0,{x_center - artwork_width // 2},{y_center - artwork_height // 2},' \
         f'0,{artwork_height},{x_center - artwork_width // 2},{y_center + artwork_height // 2},' \
         f'{artwork_width},0,{x_center + artwork_width // 2},{y_center - artwork_height // 2},' \
-        f'{artwork_width},{artwork_height},{x_center +
-                                            artwork_width // 2},{y_center + artwork_height // 2}'
+        f'{artwork_width},{artwork_height},{x_center + artwork_width // 2},{y_center + artwork_height // 2}'
 
     # Add border
     cmd1 = ['magick', artwork, '-bordercolor',
