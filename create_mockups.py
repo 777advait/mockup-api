@@ -72,18 +72,17 @@ def process_single_mockup(image_content, output_file):
         if resized_image is None:
             raise Exception('Error resizing image')
 
-        generate_mockup(
+        image_url = generate_mockup(
             PATH_CONFIG['template_image'],
             PATH_CONFIG['mask_image'],
             resized_image,
             PATH_CONFIG['displacement_map'],
             PATH_CONFIG['lighting_map'],
             PATH_CONFIG['adjustment_map'],
-            output_file
         )
 
-        logging.info(f"Successfully processed mockup: {output_file}")
-        return f"Success: {output_file}"
+        logging.info(f"Successfully processed mockup: {image_url}")
+        return image_url
 
     except Exception as e:
         logging.error(f"Comprehensive error processing mockup: {e}")
