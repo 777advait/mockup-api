@@ -7,3 +7,6 @@ flask
 werkzeug
 flask-cors
 requests
+python-dotenv
+azure-storage-blob
+uuid

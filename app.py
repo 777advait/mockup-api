@@ -59,7 +59,6 @@ def generate_mockup():
         return jsonify({"success": False, "message": f"An unexpected error occurred\nError: {e}", "data": None}), 500
 
 
-
 @app.route("/", methods=['GET'])
 def welcome():
     """Welcome endpoint"""
@@ -155,7 +154,8 @@ def get_upload():
     """Serve upload page"""
     return send_file('upload_images.html')
 
+
 # Main application execution
 if __name__ == '__main__':
     print("Mockup API is running on http://localhost:8000")
-    app.run(debug=True, host='0.0.0.0', port=8000)
+    app.run(host='0.0.0.0', port=8000, load_dotenv=True)
