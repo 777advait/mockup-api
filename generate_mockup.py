@@ -34,7 +34,7 @@ def generate_mockup(template, mask, artwork, displacement_map, lighting_map, adj
 
     # Get dimensions of the template
     def get_image_size(image_path):
-        cmd = ['convert', 'identify', '-format', '%wx%h', image_path]
+        cmd = ['identify', '-format', '%wx%h', image_path]
         result = subprocess.run(
             cmd, capture_output=True, text=True, check=True)
         width, height = map(int, result.stdout.strip().split('x'))
