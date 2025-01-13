@@ -34,7 +34,7 @@ def generate_mockup(template, mask, artwork, displacement_map, lighting_map, adj
 
     # Get dimensions of the template
     def get_image_size(image_path):
-        cmd = ['magick', 'identify', '-format', '%wx%h', image_path]
+        cmd = ['convert', 'identify', '-format', '%wx%h', image_path]
         result = subprocess.run(
             cmd, capture_output=True, text=True, check=True)
         width, height = map(int, result.stdout.strip().split('x'))
@@ -61,39 +61,39 @@ def generate_mockup(template, mask, artwork, displacement_map, lighting_map, adj
         f'{artwork_width},{artwork_height},{x_center + artwork_width // 2},{y_center + artwork_height // 2}'
 
     # Add border
-    cmd1 = ['magick', artwork, '-bordercolor',
+    cmd1 = ['convert', artwork, '-bordercolor',
             'transparent', '-border', '1', tmp]
     run_command(cmd1)
 
     # Add perspective transform
     cmd2 = [
-        'magick', template, '-alpha', 'transparent', '(', tmp, '-distort', 'perspective', coords, ')',
+        'convert', template, '-alpha', 'transparent', '(', tmp, '-distort', 'perspective', coords, ')',
         '-background', 'transparent', '-layers', 'merge', '+repage', tmp
     ]
     run_command(cmd2)
 
     # Set background color
-    cmd3 = ['magick', tmp, '-background',
+    cmd3 = ['convert', tmp, '-background',
             'transparent', '-alpha', 'remove', tmp]
     run_command(cmd3)
 
     # Add displacement
-    cmd4 = ['magick', tmp, displacement_map, '-compose', 'displace',
+    cmd4 = ['convert', tmp, displacement_map, '-compose', 'displace',
             '-set', 'option:compose:args', '20x20', '-composite', tmp]
     run_command(cmd4)
 
     # Add highlights
-    cmd5 = ['magick', tmp, '(', '-clone', '0', lighting_map, '-compose', 'hardlight',
+    cmd5 = ['convert', tmp, '(', '-clone', '0', lighting_map, '-compose', 'hardlight',
             '-composite', ')', '+swap', '-compose', 'CopyOpacity', '-composite', tmp]
     run_command(cmd5)
 
     # Adjust colors
-    cmd6 = ['magick', tmp, '(', '-clone', '0', adjustment_map, '-compose', 'multiply',
+    cmd6 = ['convert', tmp, '(', '-clone', '0', adjustment_map, '-compose', 'multiply',
             '-composite', ')', '+swap', '-compose', 'CopyOpacity', '-composite', tmp]
     run_command(cmd6)
 
     # Compose artwork
-    cmd7 = ['magick', template, tmp, mask, '-compose',
+    cmd7 = ['convert', template, tmp, mask, '-compose',
             'over', '-composite', '-resize', '800', 'png:-']
     result = subprocess.run(cmd7, capture_output=True, check=True)
 

@@ -6,7 +6,7 @@ def create_adjustment_map(template, mask):
 
     # Command to apply mask and create adjustment map
     cmd = [
-        'magick', template, '(', '-clone', '0', '-fill', '#f1f1f1', '-colorize', '100', ')',
+        'convert', template, '(', '-clone', '0', '-fill', '#f1f1f1', '-colorize', '100', ')',
         mask, '-compose', 'DivideSrc', '-composite', out
     ]
     subprocess.run(cmd, check=True)
